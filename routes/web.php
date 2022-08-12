@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(CompanyController::class)->group(function () {
+    Route::view('/', 'entities.company.index')
+        ->name('home');
+
+    Route::post('/send-form', 'sendForm')
+        ->name('send-form');
 });
