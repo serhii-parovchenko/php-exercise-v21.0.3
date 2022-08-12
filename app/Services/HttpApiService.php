@@ -20,12 +20,10 @@ class HttpApiService implements ApiInterface
 
     public function sendRequest(): void
     {
-        $http = new Http();
-
         if ($this->headers) {
-            $this->data = $http::withHeaders($this->headers)->get($this->params['url'], $this->params['query'] ?? []);
+            $this->data = Http::withHeaders($this->headers)->get($this->params['url'], $this->params['query'] ?? []);
         } else {
-            $this->data = $http::get($this->params['url'], $this->params['query'] ?? []);
+            $this->data = Http::get($this->params['url'], $this->params['query'] ?? []);
         }
     }
 

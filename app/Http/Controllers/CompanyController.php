@@ -51,7 +51,7 @@ class CompanyController extends Controller
             $apiService->sendRequest();
             $requestedData2 = $apiService->getRequestedData('prices');
 
-            if ($requestedData2 && $company_name) {
+            if ($requestedData2->count() && $company_name) {
                 $requestedData2 = $requestedData2->whereBetween('date', [strtotime($validated['start_date']), strtotime($validated['end_date'])])
                     ->filter(function ($item) {
                         return !isset($item['type'], $item['splitRatio'], $item['denominator'], $item['numerator'], $item['data']);

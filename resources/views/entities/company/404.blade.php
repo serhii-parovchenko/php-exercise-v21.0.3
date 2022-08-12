@@ -7,7 +7,7 @@
                 <h3>{{ __('The company prices data not found!') }}</h3>
                 <div class="d-flex justify-content-center">
                     {{ __('To return back, please, click on the link: ') }}
-                    <a href="{{ route('company-home') }}" class="alert-link">{{ __('here') }}</a>
+                    <a href="{{ route('home') }}" class="alert-link">{{ __('here') }}</a>
                 </div>
             </div>
         </div>
